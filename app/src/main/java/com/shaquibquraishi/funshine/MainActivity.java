@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             @Override
             public void onResponse(JSONObject response) {
                 try{
+
                     JSONObject city=response.getJSONObject("city");
                     String cityName=city.getString("name");
                     String country=city.getString("country");
@@ -259,72 +260,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         }
 
     }
-    public class WeatherAdapter extends RecyclerView.Adapter<WeatherReportViewHolder>{
-        private ArrayList<DailyWeatherReport> mDailyWeatherReport;
-        public WeatherAdapter(ArrayList<DailyWeatherReport> dailyWeatherReports){
-            mDailyWeatherReport=dailyWeatherReports;
-        }
-
-        @Override
-        public void onBindViewHolder(WeatherReportViewHolder holder, int position) {
-            DailyWeatherReport report=mDailyWeatherReport.get(position);
-            holder.updateUI(report);
-        }
-
-        @Override
-        public int getItemCount() {
-            return mDailyWeatherReport.size();
-        }
-
-        @Override
-        public WeatherReportViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View card= LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item,parent,false);
-            return new WeatherReportViewHolder(card);
-        }
-    }
-    public class WeatherReportViewHolder extends RecyclerView.ViewHolder{
-        private ImageView weatherMini_icon;
-        private TextView weatherDay;
-        private TextView weatherDescription;
-        private TextView weatherTempMax;
-        private TextView weatherTempMin;
-
-        public WeatherReportViewHolder(View itemView) {
-            super(itemView);
-            weatherMini_icon=itemView.findViewById(R.id.weatherMini_icon);
-            weatherDay=itemView.findViewById(R.id.weatherDay);
-            weatherDescription=itemView.findViewById(R.id.weatherDescription);
-            weatherTempMax=itemView.findViewById(R.id.weatherTempMax);
-            weatherTempMin=itemView.findViewById(R.id.weatherTempMin);
-        }
-        public void updateUI(DailyWeatherReport report){
-            switch (report.getWeather()){
-                case "Clear":
-                    weatherMini_icon.setImageDrawable(getResources().getDrawable(R.drawable.weather_sunny));
-                    break;
-                case "Clouds":
-                    weatherMini_icon.setImageDrawable(getResources().getDrawable(R.drawable.weather_cloudy));
-                    break;
-                case "Rain":
-                    weatherMini_icon.setImageDrawable(getResources().getDrawable(R.drawable.weather_rainy));
-                    break;
-                case "Snow":
-                    weatherMini_icon.setImageDrawable(getResources().getDrawable(R.drawable.weather_snowy));
-                    break;
-                case "Drizzle":
-                    weatherMini_icon.setImageDrawable(getResources().getDrawable(R.drawable.weather_drizzle));
-                    break;
-                default:
-                    weatherMini_icon.setImageDrawable(getResources().getDrawable(R.drawable.weather_sunny));
 
 
-            }
-            String [] x=report.getFormattedDate().split(",");
-            weatherDay.setText(x[0]);
-            weatherDescription.setText(report.getWeather() );
-            weatherTempMax.setText(String.valueOf(report.getMaxTemp()));
-            weatherTempMin.setText(String.valueOf(report.getMinTemp()));
-
-        }
-    }
 }
