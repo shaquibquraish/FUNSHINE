@@ -27,22 +27,24 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical">
+
             <TextView
+                android:id="@+id/weatherDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="26dp"
                 android:text="Sunday"
                 android:textColor="#595959"
-                android:id="@+id/weatherDay"
-                />
+                android:fontFamily="monospace"
+                android:textSize="22dp" />
+
             <TextView
+                android:id="@+id/weatherDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
                 android:text="Clear"
+                android:fontFamily="monospace"
                 android:textColor="#595959"
-                android:id="@+id/weatherDescription"
-                />
+                android:textSize="18dp" />
 
         </LinearLayout>
         <LinearLayout
@@ -51,15 +53,16 @@
             android:layout_marginRight="10dp"
             android:layout_gravity="center"
             android:gravity="end"
+            android:paddingRight="25dp"
             android:orientation="vertical">
+
             <TextView
+                android:id="@+id/weatherTempMax"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="26dp"
                 android:text="78°"
                 android:textColor="#595959"
-                android:id="@+id/weatherTempMax"
-                />
+                android:textSize="22dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

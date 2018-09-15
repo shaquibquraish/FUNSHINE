@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class WeatherReportViewHolder extends RecyclerView.ViewHolder{
@@ -13,6 +14,7 @@ public class WeatherReportViewHolder extends RecyclerView.ViewHolder{
     private TextView weatherDescription;
     private TextView weatherTempMax;
     private TextView weatherTempMin;
+    public LinearLayout linearLayout;
 
     public WeatherReportViewHolder(View itemView) {
         super(itemView);
@@ -21,6 +23,7 @@ public class WeatherReportViewHolder extends RecyclerView.ViewHolder{
         weatherDescription=itemView.findViewById(R.id.weatherDescription);
         weatherTempMax=itemView.findViewById(R.id.weatherTempMax);
         weatherTempMin=itemView.findViewById(R.id.weatherTempMin);
+        linearLayout=itemView.findViewById(R.id.recyclerItem_id);
     }
     public void updateUI(DailyWeatherReport report){
         switch (report.getWeather()){

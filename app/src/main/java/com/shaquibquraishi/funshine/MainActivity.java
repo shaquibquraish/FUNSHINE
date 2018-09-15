@@ -13,13 +13,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     TextView minTemp;
     TextView weatherType;
     WeatherAdapter madapter;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,16 +67,19 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         RecyclerView recyclerView=findViewById(R.id.recyclerView);
-        madapter=new WeatherAdapter(arrayList2);
+        madapter=new WeatherAdapter(getBaseContext(),arrayList2);
+        recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(madapter);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
+        progressBar=findViewById(R.id.progressBarRefresh);
+        progressBar.setVisibility(View.VISIBLE);
 
-        weatherIcon=findViewById(R.id.weatherIcon);
-        cityCountryName=findViewById(R.id.cityCountryName);
+        weatherIcon=findViewById(R.id.weatherIcond);
+        cityCountryName=findViewById(R.id.cityCountryNamed);
         date=findViewById(R.id.weatherDate);
-        currentTemp=findViewById(R.id.currentTemp);
-        minTemp=findViewById(R.id.minTemp);
+        currentTemp=findViewById(R.id.currentTempd);
+        minTemp=findViewById(R.id.minTempd);
         weatherType=findViewById(R.id.weatherType);
        mGoogleApiClient=new GoogleApiClient.Builder(this)
                .addApi(LocationServices.API)
@@ -146,6 +149,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 }
                 updateUI();
                 madapter.notifyDataSetChanged();
+                progressBar.setVisibility(View.GONE);
 
             }
         }, new Response.ErrorListener() {
@@ -260,6 +264,5 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         }
 
     }
-
 
 }

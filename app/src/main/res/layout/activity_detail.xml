@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor"
-    tools:context=".MainActivity">
+    android:background="#EEEEEE"
+    tools:context=".DetailActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbarDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -31,54 +31,80 @@
                 android:src="@drawable/sun3" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="55dp"
                 android:fontFamily="cursive"
-                android:text="Sunshine"
+                android:text="Details"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="36sp"
                 android:textStyle="bold" />
 
+            <ImageView
+                android:id="@+id/shareId"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="50dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/share_variant" />
+
 
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
-
     <TextView
-        android:id="@+id/weatherDate"
+        android:id="@+id/weatherDayd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="monospace"
-        android:textColor="#FFFFFF"
+        android:text="Saturday"
+        android:textColor="#424242"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <TextView
+        android:id="@+id/weatherDated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="monospace"
+        android:text="June 28"
+        android:textColor="#424242"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/currentTempd"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintEnd_toEndOf="@+id/weatherDayd"
+        app:layout_constraintStart_toStartOf="@+id/weatherDayd"
+        app:layout_constraintTop_toBottomOf="@+id/weatherDayd" />
 
     <TextView
         android:id="@+id/currentTempd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:textColor="#FFFFFF"
+        android:text="78°"
+        android:textColor="#424242"
         android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="@+id/weatherIcond"
         app:layout_constraintEnd_toStartOf="@+id/minTempd"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weatherDate" />
+        app:layout_constraintTop_toTopOf="@+id/weatherIcond" />
 
     <TextView
         android:id="@+id/minTempd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
+        android:text="64°"
+        android:textColor="#424242"
         android:textSize="24sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/currentTempd"
         app:layout_constraintEnd_toStartOf="@+id/weatherIcond"
@@ -90,67 +116,96 @@
         android:layout_width="140dp"
         android:layout_height="137dp"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/minTempd"
-        app:layout_constraintTop_toTopOf="@+id/weatherDate"
-        app:srcCompat="@android:color/transparent" />
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:srcCompat="@drawable/art_clear" />
 
     <TextView
         android:id="@+id/cityCountryNamed"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginBottom="35dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="35dp"
         android:fontFamily="monospace"
-        android:textColor="#FFFFFF"
+        android:text="Portland,USA"
+        android:textColor="#424242"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintStart_toStartOf="@+id/currentTempd"
         app:layout_constraintTop_toBottomOf="@+id/currentTempd" />
 
     <TextView
-        android:id="@+id/weatherType"
+        android:id="@+id/weatherTyped"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
-        android:textColor="#FFFFFF"
+        android:text="Clear"
+        android:textColor="#424242"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/cityCountryNamed"
         app:layout_constraintEnd_toEndOf="@+id/weatherIcond"
         app:layout_constraintStart_toStartOf="@+id/weatherIcond" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
-
     <android.support.constraint.Guideline
-        android:id="@+id/guideline"
+        android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="292dp" />
+        app:layout_constraintGuide_percent="0.14109348" />
 
-    <ProgressBar
-        android:id="@+id/progressBarRefresh"
-        style="?android:attr/progressBarStyle"
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33156967" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <TextView
+        android:id="@+id/weatherHumidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="monospace"
+        android:text="Humidity : 0%"
+        android:textColor="#424242"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+
+    <TextView
+        android:id="@+id/weatherPressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="monospace"
+        android:text="Pressure : 128hpa"
+        android:textColor="#424242"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/weatherHumidity"
+        app:layout_constraintTop_toBottomOf="@+id/weatherHumidity" />
+
+    <TextView
+        android:id="@+id/weatherWind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="monospace"
+        android:text="Wind : 7km/h NW"
+        android:textColor="#424242"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/weatherPressure"
+        app:layout_constraintTop_toBottomOf="@+id/weatherPressure" />
 
 
 </android.support.constraint.ConstraintLayout>

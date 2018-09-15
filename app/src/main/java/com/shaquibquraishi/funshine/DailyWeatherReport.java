@@ -2,12 +2,13 @@ package com.shaquibquraishi.funshine;
 
 import android.text.format.DateFormat;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class DailyWeatherReport {
+public class DailyWeatherReport implements Serializable {
     private String cityName;
     private String country;
     private int currentTemp;
