@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "991755132187",
+    "firebase_url": "https://prattle-20370.firebaseio.com",
+    "project_id": "prattle-20370",
+    "storage_bucket": "prattle-20370.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991755132187:android:7b4c426386f7e1cf",
+        "android_client_info": {
+          "package_name": "com.radiance01.prattle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "991755132187-a065dn6275q8q60bh88ig6fl5m5if856.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.radiance01.prattle",
+            "certificate_hash": "7b01a6fcb98bc823a1965d55969eb53dfa0587fb"
+          }
+        },
+        {
+          "client_id": "991755132187-qkr3s8tt8252kog1ddhfmapss2kopcml.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZclbSk8EuzHpDD23MdiXJ__oSJOYNSu8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "991755132187-qkr3s8tt8252kog1ddhfmapss2kopcml.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
